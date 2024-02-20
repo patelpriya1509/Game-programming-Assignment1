@@ -5,7 +5,9 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"C:/Users/pate1100/Documents/Unreal Projects/PPPong/Content/Levels/Level1.umap"
+				"C:/Users/pate1100/Documents/Unreal Projects/PPPong/Content/Levels/Level1.umap",
+				"C:/Users/pate1100/Documents/Unreal Projects/PPPong/Content/Blueprints/BP_MyGameModeBase.uasset",
+				"C:/Users/pate1100/Documents/Unreal Projects/PPPong/Content/Blueprints/BP_MyGameState.uasset"
 			]
 		}
 	]
