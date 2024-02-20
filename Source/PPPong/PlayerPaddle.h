@@ -19,11 +19,25 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(EditAnywhere, Category = "PlayerPaddle")
+	class UBoxComponent* Root;
+
+	UPROPERTY(EditAnywhere, Category = "PlayerPaddle")
+	class UStaticMeshComponent* VisualMesh;
+
+	UPROPERTY(EditAnywhere, Category = "PlayerPaddle")
+	float Velocity = 300.0f;
+
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+private:
+	float MoveUpAmount = 0;
+	
+	void MoveUp(float Amount);
 
 };
