@@ -2,6 +2,7 @@
 
 
 #include "Goal.h"
+#include "Components/BoxComponent.h"
 
 // Sets default values
 AGoal::AGoal()
@@ -9,6 +10,8 @@ AGoal::AGoal()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	Goal = CreateDefaultSubobject<UBoxComponent>(TEXT("Goal"));
+	SetRootComponent(Goal);
 }
 
 // Called when the game starts or when spawned

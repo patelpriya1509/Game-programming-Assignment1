@@ -24,6 +24,22 @@ ABall::ABall()
 	Projectile->Bounciness = 1.1;
 	Projectile->Friction = 0.f;
 
+
+	BallMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	BallMesh->SetCollisionProfileName(TEXT("IgnoreAll"));
+
+	BallSphere->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	BallSphere->SetCollisionProfileName("BlockAllDynamic");
+
+	BallSphere->GetBodyInstance()->bLockXRotation = true;
+	BallSphere->GetBodyInstance()->bLockYRotation = true;
+	BallSphere->GetBodyInstance()->bLockZRotation = true;
+	BallSphere->GetBodyInstance()->bLockXTranslation = true;
+	BallSphere->GetBodyInstance()->bLockZTranslation = true;
+
+	BallSphere->SetLinearDamping(10);
+
+
 }
 
 // Called when the game starts or when spawned

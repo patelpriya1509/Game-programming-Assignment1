@@ -5,7 +5,6 @@
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Camera/CameraActor.h"
-#include "EngineUtils.h"
 
 // Sets default values
 APlayerPaddle::APlayerPaddle()
@@ -20,7 +19,7 @@ APlayerPaddle::APlayerPaddle()
 	//Root->SetupAttachment(RootComponent);
 	VisualMesh->SetupAttachment(Root);
 
-	AutoPossessPlayer = EAutoReceiveInput::Player0;
+	//AutoPossessPlayer = EAutoReceiveInput::Player0;
 
 	VisualMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	VisualMesh->SetCollisionProfileName(TEXT("IgnoreAll"));
@@ -58,18 +57,14 @@ void APlayerPaddle::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (GetController() != nullptr) {
-		FRotator Rotation(0.f, GetControlRotation().Yaw, 0.f);
+	
 		FVector Direction = FVector::ZeroVector;
 
 		if (MoveUpAmount != 0) {
 			Direction = GetActorLocation() + GetActorUpVector() * MoveUpAmount * Velocity * DeltaTime;
 			SetActorLocation(Direction);
 		}
-	}
-
 }
-
 // Called to bind functionality to input
 void APlayerPaddle::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
